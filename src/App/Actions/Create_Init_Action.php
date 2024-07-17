@@ -23,8 +23,7 @@ class Create_Init_Action extends Action_Base {
 	 * @param Request $Request
 	 * @return Request_Response
 	 */
-	public function execute(Request $Request): Request_Response
-	{
+	public function execute(Request $Request): Request_Response {
 		
 		$force_overwrite = $Request->getArgument('force');
 
@@ -33,8 +32,7 @@ class Create_Init_Action extends Action_Base {
 			exit(1);
 		}
 
-		$printer = new Printer;
-		$printer->info("Welcome to the Clyde project initializer. Let's get started!");
+		$this->Printer->info("Welcome to the Clyde project initializer. Let's get started!");
 		$project_name = text("What is the name of your project?");
 		$using_database = select("Will you be using a database?", ["Yes", "No"]);
 
@@ -65,7 +63,7 @@ class Create_Init_Action extends Action_Base {
 			Saving configuration file..."
 		);
 
-		$printer->success("Created devtools configuration file!");
+		$this->Printer->success("Created devtools configuration file!");
 		return new Request_Response(true);
 	}
 }
