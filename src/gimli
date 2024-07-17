@@ -20,6 +20,8 @@ Application::create('gimli')
 	->about('Devtools for GimliDuck Framework')
 	->author(Emoji::ALIEN_MONSTER . ' dvnc0')
 	->helpTemplate(APP_ROOT . '/App/templates/help.txt')
+
+	// Create devtools config
 	->command(
 		Command::create('init')
 		->about('Create a devtools configuration file')
@@ -35,4 +37,33 @@ Application::create('gimli')
 		)
 		->save()
 	)
+
+	// TODO:
+
+	// Create a new controller
+
+	// Create a new model
+
+	// Create a new view
+
+	// Create a new middleware
+
+	// Create a new logic
+
+	// Create a migration
+
+	// Create a route file
+
+	// Add a route to a route file
+
+	// Add a Vue file
+
+	// Create a skeleton project
+
+	// Run Vue build
+
+	// Run TailwindCSS build
+
+	// Run migrations
+
 ->run();

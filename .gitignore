@@ -4,3 +4,4 @@ vendor
 .phpunit.cache
 src/tests/coverage
 devtools.json
+devtools.migration.json

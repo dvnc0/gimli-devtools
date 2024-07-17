@@ -16,6 +16,9 @@ use function Laravel\Prompts\text;
  */
 class Create_Init_Action extends Action_Base {
 
+	public const MIGRATION_LOG = '/devtools.migration.json';
+	public const CONFIG_FILE = '/devtools.json';
+
 	/**
 	 * Execute the action
 	 *
@@ -41,6 +44,7 @@ class Create_Init_Action extends Action_Base {
 			$database_password = text("What is the password for your database?");
 			$database_host = text(label: "What is the host for your database?", placeholder: "localhost");
 			$database_port = text("What is the port for your database?");
+			$migration_path = text(label: "What is the path to your migrations?", default: ROOT . '/sql');
 		}
 
 		$devtools_config = [
@@ -54,13 +58,26 @@ class Create_Init_Action extends Action_Base {
 				"password" => $database_password,
 				"host" => $database_host,
 				"port" => $database_port,
+				"migrations" => $migration_path
 			];
 		}
 
 		spin(
-			fn() => file_put_contents(ROOT . "/devtools.json", json_encode($devtools_config, JSON_PRETTY_PRINT)), "
+			fn() => file_put_contents(ROOT . self::CONFIG_FILE, json_encode($devtools_config, JSON_PRETTY_PRINT)), "
 			Saving configuration file..."
 		);
+
+		if ($using_database === "Yes") {
+			$log = [
+				'processed' => [],
+				'last_run' => date('YmdHis'),
+			];
+
+			spin(
+				fn() => file_put_contents(ROOT . self::MIGRATION_LOG, json_encode($log, JSON_PRETTY_PRINT)), "
+				Saving log file..."
+			);
+		}
 
 		$this->Printer->success("Created devtools configuration file!");
 		return new Request_Response(true);
