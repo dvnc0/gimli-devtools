@@ -7,6 +7,7 @@ use Clyde\Actions\Action_Base;
 use Clyde\Request\Request;
 use Clyde\Request\Request_Response;
 
+use function Laravel\Prompts\confirm;
 use function Laravel\Prompts\select;
 use function Laravel\Prompts\spin;
 use function Laravel\Prompts\text;
@@ -60,6 +61,14 @@ class Create_Init_Action extends Action_Base {
 				"port" => $database_port,
 				"migrations" => $migration_path
 			];
+		}
+
+		if ($force_overwrite) {
+			$continue = confirm("Would you like to continue? Doing so will overwrite your existing configuration file.");
+			if (!$continue) {
+				$this->Printer->error("Exiting...");
+				exit(0);
+			}
 		}
 
 		spin(
