@@ -6,7 +6,6 @@ namespace GimliDev\Actions;
 use Clyde\Actions\Action_Base;
 use Clyde\Request\Request;
 use Clyde\Request\Request_Response;
-use Clyde\Tools\Printer;
 
 use function Laravel\Prompts\select;
 use function Laravel\Prompts\spin;
