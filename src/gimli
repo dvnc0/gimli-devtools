@@ -1,0 +1,38 @@
+#! /usr/bin/php
+<?php
+if (php_sapi_name() !== 'cli') {
+    exit;
+}
+
+require_once 'vendor/autoload.php';
+
+use GimliDev\Actions\Create_Init_Action;
+use Clyde\Application;
+use Clyde\Args\Arg_Flag;
+use Clyde\Commands\Command;
+use Clyde\Tools\Emoji;
+
+define('ROOT', getcwd());
+define('APP_ROOT', __DIR__);
+
+Application::create('gimli')
+	->version(Emoji::GREEN_BOX_WITH_CHECKMARK . ' v0.1.0')
+	->about('Devtools for GimliDuck Framework')
+	->author(Emoji::ALIEN_MONSTER . ' dvnc0')
+	->helpTemplate(APP_ROOT . '/App/templates/help.txt')
+	->command(
+		Command::create('init')
+		->about('Create a devtools configuration file')
+		->action(Create_Init_Action::class)
+		->arg(
+			Arg_Flag::create('force')
+				->shortName('f')
+				->help('Force overwrite existing configuration file')
+				->defaultValue(false)
+				->setTo(true)
+				->longName('force')
+				->save()
+		)
+		->save()
+	)
+->run();

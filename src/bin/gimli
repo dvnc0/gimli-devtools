@@ -1,0 +1,9 @@
+#!/usr/bin/env php
+<?php
+namespace Composer;
+
+if (php_sapi_name() !== 'cli') {
+    exit;
+}
+
+include __DIR__ . '/../gimli';
