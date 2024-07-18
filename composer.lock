@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "458436afe0b531496cf8fdb6a7914877",
+    "content-hash": "0b9220d172e923fa7cfa9d1700b480c0",
     "packages": [
         {
             "name": "danc0/clyde",
-            "version": "v0.5.7",
+            "version": "v0.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dvnc0/clyde.git",
-                "reference": "4820276ae17779887d08885321da3206d72f8130"
+                "reference": "ff0602f283ecbf3703d1a8172f186b0ea37f3212"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dvnc0/clyde/zipball/4820276ae17779887d08885321da3206d72f8130",
-                "reference": "4820276ae17779887d08885321da3206d72f8130",
+                "url": "https://api.github.com/repos/dvnc0/clyde/zipball/ff0602f283ecbf3703d1a8172f186b0ea37f3212",
+                "reference": "ff0602f283ecbf3703d1a8172f186b0ea37f3212",
                 "shasum": ""
             },
             "require": {
@@ -48,9 +48,9 @@
             "description": "Your friendly neighborhood CLI framework.",
             "support": {
                 "issues": "https://github.com/dvnc0/clyde/issues",
-                "source": "https://github.com/dvnc0/clyde/tree/v0.5.7"
+                "source": "https://github.com/dvnc0/clyde/tree/v0.7.1"
             },
-            "time": "2023-08-29T04:28:37+00:00"
+            "time": "2024-07-18T05:22:27+00:00"
         },
         {
             "name": "illuminate/collections",
@@ -304,6 +304,161 @@
                 "source": "https://github.com/laravel/prompts/tree/v0.1.24"
             },
             "time": "2024-06-17T13:58:22+00:00"
+        },
+        {
+            "name": "nette/php-generator",
+            "version": "v4.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nette/php-generator.git",
+                "reference": "690b00d81d42d5633e4457c43ef9754573b6f9d6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nette/php-generator/zipball/690b00d81d42d5633e4457c43ef9754573b6f9d6",
+                "reference": "690b00d81d42d5633e4457c43ef9754573b6f9d6",
+                "shasum": ""
+            },
+            "require": {
+                "nette/utils": "^3.2.9 || ^4.0",
+                "php": "8.0 - 8.3"
+            },
+            "require-dev": {
+                "jetbrains/phpstorm-attributes": "dev-master",
+                "nette/tester": "^2.4",
+                "nikic/php-parser": "^4.18 || ^5.0",
+                "phpstan/phpstan": "^1.0",
+                "tracy/tracy": "^2.8"
+            },
+            "suggest": {
+                "nikic/php-parser": "to use ClassType::from(withBodies: true) & ClassType::fromCode()"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.1-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0-only",
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "https://davidgrudl.com"
+                },
+                {
+                    "name": "Nette Community",
+                    "homepage": "https://nette.org/contributors"
+                }
+            ],
+            "description": "🐘 Nette PHP Generator: generates neat PHP code for you. Supports new PHP 8.3 features.",
+            "homepage": "https://nette.org",
+            "keywords": [
+                "code",
+                "nette",
+                "php",
+                "scaffolding"
+            ],
+            "support": {
+                "issues": "https://github.com/nette/php-generator/issues",
+                "source": "https://github.com/nette/php-generator/tree/v4.1.5"
+            },
+            "time": "2024-05-12T17:31:02+00:00"
+        },
+        {
+            "name": "nette/utils",
+            "version": "v4.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nette/utils.git",
+                "reference": "d3ad0aa3b9f934602cb3e3902ebccf10be34d218"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nette/utils/zipball/d3ad0aa3b9f934602cb3e3902ebccf10be34d218",
+                "reference": "d3ad0aa3b9f934602cb3e3902ebccf10be34d218",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0 <8.4"
+            },
+            "conflict": {
+                "nette/finder": "<3",
+                "nette/schema": "<1.2.2"
+            },
+            "require-dev": {
+                "jetbrains/phpstorm-attributes": "dev-master",
+                "nette/tester": "^2.5",
+                "phpstan/phpstan": "^1.0",
+                "tracy/tracy": "^2.9"
+            },
+            "suggest": {
+                "ext-gd": "to use Image",
+                "ext-iconv": "to use Strings::webalize(), toAscii(), chr() and reverse()",
+                "ext-intl": "to use Strings::webalize(), toAscii(), normalize() and compare()",
+                "ext-json": "to use Nette\\Utils\\Json",
+                "ext-mbstring": "to use Strings::lower() etc...",
+                "ext-tokenizer": "to use Nette\\Utils\\Reflection::getUseStatements()"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.0-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0-only",
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "https://davidgrudl.com"
+                },
+                {
+                    "name": "Nette Community",
+                    "homepage": "https://nette.org/contributors"
+                }
+            ],
+            "description": "🛠  Nette Utils: lightweight utilities for string & array manipulation, image handling, safe JSON encoding/decoding, validation, slug or strong password generating etc.",
+            "homepage": "https://nette.org",
+            "keywords": [
+                "array",
+                "core",
+                "datetime",
+                "images",
+                "json",
+                "nette",
+                "paginator",
+                "password",
+                "slugify",
+                "string",
+                "unicode",
+                "utf-8",
+                "utility",
+                "validation"
+            ],
+            "support": {
+                "issues": "https://github.com/nette/utils/issues",
+                "source": "https://github.com/nette/utils/tree/v4.0.4"
+            },
+            "time": "2024-01-17T16:50:36+00:00"
         },
         {
             "name": "psr/container",

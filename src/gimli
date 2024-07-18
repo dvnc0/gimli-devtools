@@ -9,8 +9,10 @@ require_once 'vendor/autoload.php';
 use GimliDev\Actions\Create_Init_Action;
 use Clyde\Application;
 use Clyde\Args\Arg_Flag;
+use Clyde\Args\Arg_Option;
 use Clyde\Commands\Command;
 use Clyde\Tools\Emoji;
+use GimliDev\Actions\Create_Controller_Action;
 
 define('ROOT', getcwd());
 define('APP_ROOT', __DIR__);
@@ -37,10 +39,49 @@ Application::create('gimli')
 		)
 		->save()
 	)
+	
+	// Create a new controller
+	->command(
+		Command::create('controller <controller_name>')
+		->about('Create a new controller')
+		->action(Create_Controller_Action::class)
+		->arg(
+			Arg_Flag::create('single_action')
+				->shortName('s')
+				->help('Create a controller with a single action')
+				->defaultValue(false)
+				->setTo(true)
+				->longName('single_action')
+				->save()
+		)
+		->arg(
+			Arg_Flag::create('resource')
+				->shortName('r')
+				->help('Create a controller with resource actions')
+				->defaultValue(false)
+				->setTo(true)
+				->longName('resource')
+				->save()
+		)
+		->arg(
+			Arg_Option::create('namespace')
+				->help('Set the namespace for the controller, remember to double escape \\')
+				->shortName('n')
+				->longName('namespace')
+				->save()
+		)
+		->arg(
+			Arg_Option::create('save_path')
+				->help('Set the save path for the controller')
+				->shortName('p')
+				->longName('save_path')
+				->save()
+		)
+		->save()
+	)
 
 	// TODO:
 
-	// Create a new controller
 
 	// Create a new model
 
