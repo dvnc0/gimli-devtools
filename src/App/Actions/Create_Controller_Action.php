@@ -113,6 +113,7 @@ class Create_Controller_Action extends Action_Base {
 			[
 				'name' => '__invoke',
 				'return' => self::RESPONSE_NAMESPACE,
+				'return_name' => 'Response',
 				'params' => [
 					[
 						'name' => 'Response',
@@ -176,6 +177,7 @@ class Create_Controller_Action extends Action_Base {
 				'name' => 'index',
 				'comment' => 'List all resources',
 				'return' => self::RESPONSE_NAMESPACE,
+				'return_name' => 'Response',
 				'params' => [
 					[
 						'name' => 'Response',
@@ -188,6 +190,7 @@ class Create_Controller_Action extends Action_Base {
 				'name' => 'create',
 				'comment' => 'Show the form to create a new resource',
 				'return' => self::RESPONSE_NAMESPACE,
+				'return_name' => 'Response',
 				'params' => [
 					[
 						'name' => 'Response',
@@ -200,6 +203,7 @@ class Create_Controller_Action extends Action_Base {
 				'name' => 'save',
 				'comment' => 'Save a new resource',
 				'return' => self::RESPONSE_NAMESPACE,
+				'return_name' => 'Response',
 				'params' => [
 					[
 						'name' => 'Response',
@@ -217,6 +221,7 @@ class Create_Controller_Action extends Action_Base {
 				'name' => 'change',
 				'comment' => 'Show the form to update a resource',
 				'return' => self::RESPONSE_NAMESPACE,
+				'return_name' => 'Response',
 				'params' => [
 					[
 						'name' => 'Response',
@@ -239,6 +244,7 @@ class Create_Controller_Action extends Action_Base {
 				'name' => 'update',
 				'comment' => 'Update a resource',
 				'return' => self::RESPONSE_NAMESPACE,
+				'return_name' => 'Response',
 				'params' => [
 					[
 						'name' => 'Response',
@@ -261,6 +267,7 @@ class Create_Controller_Action extends Action_Base {
 				'name' => 'view',
 				'comment' => 'View a specific resource',
 				'return' => self::RESPONSE_NAMESPACE,
+				'return_name' => 'Response',
 				'params' => [
 					[
 						'name' => 'Response',
@@ -283,6 +290,7 @@ class Create_Controller_Action extends Action_Base {
 				'name' => 'remove',
 				'comment' => 'Remove a resource',
 				'return' => self::RESPONSE_NAMESPACE,
+				'return_name' => 'Response',
 				'params' => [
 					[
 						'name' => 'Response',
