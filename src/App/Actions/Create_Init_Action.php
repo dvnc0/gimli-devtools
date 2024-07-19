@@ -37,6 +37,11 @@ class Create_Init_Action extends Action_Base {
 
 		$this->Printer->info("Welcome to the Clyde project initializer. Let's get started!");
 		$project_name = text("What is the name of your project?");
+
+		$devtools_config = [
+			"project_name" => $project_name,
+		];
+
 		$using_database = select("Will you be using a database?", ["Yes", "No"]);
 
 		if ($using_database === "Yes") {
@@ -48,9 +53,15 @@ class Create_Init_Action extends Action_Base {
 			$migration_path = text(label: "What is the path to your migrations?", default: ROOT . '/sql');
 		}
 
-		$devtools_config = [
-			"project_name" => $project_name,
-		];
+		$controller_defaults = select("Would you like to set controller defaults?", ["Yes", "No"]);
+
+		if ($controller_defaults === "Yes") {
+			$devtools_config["controllers"] = [
+				'default_save_path' => text(label: 'What is the default save path for controllers?', default: '/src/App/Controllers'),
+				'namespace' => text(label: 'What is the default namespace for controllers?', default: 'App\Controllers'),
+				'extends' => text(label: 'What is the default class to extend for controllers?') ?? "",
+			];
+		}
 
 		if ($using_database === "Yes") {
 			$devtools_config["database"] = [
