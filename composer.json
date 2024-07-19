@@ -18,7 +18,10 @@
     "autoload": {
         "psr-4": {
             "GimliDev\\": "src/App/"
-        }
+        },
+		"files": [
+			"src/App/helpers.php"
+		]
     },
     "require": {
         "php": ">=8.1",
