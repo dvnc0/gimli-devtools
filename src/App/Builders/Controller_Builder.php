@@ -61,7 +61,7 @@ class Controller_Builder {
 				} else {
 					$controller_method->addParameter($param['name'])->setType($param['type']);
 				}
-				$param_comments .= "@param {$param['name']} \${$param['name']} {$param['comment']}\n";
+				$param_comments .= "@param {$param['type_short']} \${$param['name']} {$param['comment']}\n";
 			}
 
 			$method_comment = $method_data['comment'] ?? $method;

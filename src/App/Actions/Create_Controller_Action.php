@@ -106,6 +106,7 @@ class Create_Controller_Action extends Action_Base {
 					[
 						'name' => 'Latte_Engine',
 						'type' => self::LATTE_ENGINE,
+						'type_short' => 'Latte_Engine',
 						'comment' => 'Latte Engine'
 					]
 				]
@@ -118,6 +119,7 @@ class Create_Controller_Action extends Action_Base {
 					[
 						'name' => 'Response',
 						'type' => self::RESPONSE_NAMESPACE,
+						'type_short' => 'Response',
 						'comment' => 'The Response object'
 					]
 				]
@@ -169,6 +171,7 @@ class Create_Controller_Action extends Action_Base {
 					[
 						'name' => 'Latte_Engine',
 						'type' => self::LATTE_ENGINE,
+						'type_short' => 'Latte_Engine',
 						'comment' => 'Latte Engine'
 					]
 				]
@@ -182,6 +185,7 @@ class Create_Controller_Action extends Action_Base {
 					[
 						'name' => 'Response',
 						'type' => self::RESPONSE_NAMESPACE,
+						'type_short' => 'Response',
 						'comment' => 'The Response object'
 					]
 				]
@@ -195,6 +199,7 @@ class Create_Controller_Action extends Action_Base {
 					[
 						'name' => 'Response',
 						'type' => self::RESPONSE_NAMESPACE,
+						'type_short' => 'Response',
 						'comment' => 'The Response object'
 					]
 				]
@@ -208,11 +213,13 @@ class Create_Controller_Action extends Action_Base {
 					[
 						'name' => 'Response',
 						'type' => self::RESPONSE_NAMESPACE,
+						'type_short' => 'Response',
 						'comment' => 'The Response object'
 					],
 					[
 						'name' => 'Request',
 						'type' => self::REQUEST_NAMESPACE,
+						'type_short' => 'Request',
 						'comment' => 'The Request object'
 					]
 				]
@@ -226,16 +233,19 @@ class Create_Controller_Action extends Action_Base {
 					[
 						'name' => 'Response',
 						'type' => self::RESPONSE_NAMESPACE,
+						'type_short' => 'Response',
 						'comment' => 'The Response object'
 					],
 					[
 						'name' => 'Request',
 						'type' => self::REQUEST_NAMESPACE,
+						'type_short' => 'Request',
 						'comment' => 'The Request object'
 					],
 					[
 						'name' => 'id',
 						'type' => 'int',
+						'type_short' => 'int',
 						'comment' => 'The ID of the resource'
 					]
 				]
@@ -249,16 +259,19 @@ class Create_Controller_Action extends Action_Base {
 					[
 						'name' => 'Response',
 						'type' => self::RESPONSE_NAMESPACE,
+						'type_short' => 'Response',
 						'comment' => 'The Response object'
 					],
 					[
 						'name' => 'Request',
 						'type' => self::REQUEST_NAMESPACE,
+						'type_short' => 'Request',
 						'comment' => 'The Request object'
 					],
 					[
 						'name' => 'id',
 						'type' => 'int',
+						'type_short' => 'int',
 						'comment' => 'The ID of the resource'
 					]
 				]
@@ -272,16 +285,19 @@ class Create_Controller_Action extends Action_Base {
 					[
 						'name' => 'Response',
 						'type' => self::RESPONSE_NAMESPACE,
+						'type_short' => 'Response',
 						'comment' => 'The Response object'
 					],
 					[
 						'name' => 'Request',
 						'type' => self::REQUEST_NAMESPACE,
+						'type_short' => 'Request',
 						'comment' => 'The Request object'
 					],
 					[
 						'name' => 'id',
 						'type' => 'int',
+						'type_short' => 'int',
 						'comment' => 'The ID of the resource'
 					]
 				]
@@ -295,11 +311,13 @@ class Create_Controller_Action extends Action_Base {
 					[
 						'name' => 'Response',
 						'type' => self::RESPONSE_NAMESPACE,
+						'type_short' => 'Response',
 						'comment' => 'The Response object'
 					],
 					[
 						'name' => 'id',
 						'type' => 'int',
+						'type_short' => 'int',
 						'comment' => 'The ID of the resource'
 					]
 				]
@@ -351,6 +369,7 @@ class Create_Controller_Action extends Action_Base {
 					[
 						'name' => 'Latte_Engine',
 						'type' => self::LATTE_ENGINE,
+						'type_short' => 'Latte_Engine',
 						'comment' => 'Latte Engine'
 					]
 				]
