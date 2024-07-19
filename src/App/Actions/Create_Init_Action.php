@@ -45,12 +45,14 @@ class Create_Init_Action extends Action_Base {
 		$using_database = select("Will you be using a database?", ["Yes", "No"]);
 
 		if ($using_database === "Yes") {
-			$database_name = text("What is the name of your database?");
-			$database_user = text("What is the username for your database?");
-			$database_password = text("What is the password for your database?");
-			$database_host = text(label: "What is the host for your database?", placeholder: "localhost");
-			$database_port = text("What is the port for your database?");
-			$migration_path = text(label: "What is the path to your migrations?", default: ROOT . '/sql');
+			$devtools_config["database"] = [
+				"name" => text("What is the name of your database?"),
+				"user" => text("What is the username for your database?"),
+				"password" => text("What is the password for your database?"),
+				"host" => text(label: "What is the host for your database?", placeholder: "localhost"),
+				"port" => text("What is the port for your database?"),
+				"migrations" => text(label: "What is the path to your migrations?", default: ROOT . '/sql'),
+			];
 		}
 
 		$controller_defaults = select("Would you like to set controller defaults?", ["Yes", "No"]);
@@ -60,17 +62,6 @@ class Create_Init_Action extends Action_Base {
 				'default_save_path' => text(label: 'What is the default save path for controllers?', default: '/src/App/Controllers'),
 				'namespace' => text(label: 'What is the default namespace for controllers?', default: 'App\Controllers'),
 				'extends' => text(label: 'What is the default class to extend for controllers?') ?? "",
-			];
-		}
-
-		if ($using_database === "Yes") {
-			$devtools_config["database"] = [
-				"name" => $database_name,
-				"user" => $database_user,
-				"password" => $database_password,
-				"host" => $database_host,
-				"port" => $database_port,
-				"migrations" => $migration_path
 			];
 		}
 
