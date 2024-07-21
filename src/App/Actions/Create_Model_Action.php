@@ -81,13 +81,13 @@ class Create_Model_Action extends Action_Base
 		$File_Builder->addMethods([
 			[
 				'name' => 'beforeSave',
-				'return' => null,
+				'return' => 'void',
 				'body' => 'return;',
 				'params' => [],
 			],
 			[
 				'name' => 'afterSave',
-				'return' => null,
+				'return' => 'void',
 				'body' => 'return;',
 				'params' => [],
 			],
