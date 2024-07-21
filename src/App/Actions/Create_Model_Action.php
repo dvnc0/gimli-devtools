@@ -82,12 +82,14 @@ class Create_Model_Action extends Action_Base
 			[
 				'name' => 'beforeSave',
 				'return' => 'void',
+				'return_name' => 'void',
 				'body' => 'return;',
 				'params' => [],
 			],
 			[
 				'name' => 'afterSave',
 				'return' => 'void',
+				'return_name' => 'void',
 				'body' => 'return;',
 				'params' => [],
 			],
