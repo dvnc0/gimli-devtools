@@ -65,6 +65,16 @@ class Create_Init_Action extends Action_Base {
 			];
 		}
 
+		$logic_defaults = select("Would you like to set logic file defaults?", ["Yes", "No"]);
+
+		if ($logic_defaults === "Yes") {
+			$devtools_config["logic"] = [
+				'default_save_path' => text(label: 'What is the default save path for logic files?', default: 'App/Logic'),
+				'namespace' => text(label: 'What is the default namespace for logic files?', default: 'App\Logic'),
+				'extends' => text(label: 'What is the default class to extend for logic files?') ?? "",
+			];
+		}
+
 		if ($force_overwrite) {
 			$continue = confirm("Would you like to continue? Doing so will overwrite your existing configuration file.");
 			if (!$continue) {

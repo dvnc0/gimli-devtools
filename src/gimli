@@ -15,6 +15,7 @@ use Clyde\Args\Arg_Option;
 use Clyde\Commands\Command;
 use Clyde\Tools\Emoji;
 use GimliDev\Actions\Create_Controller_Action;
+use GimliDev\Actions\Create_Logic_Action;
 
 define('ROOT', getcwd());
 define('APP_ROOT', __DIR__);
@@ -82,6 +83,30 @@ Application::create('gimli')
 		->save()
 	)
 
+	// Create a new logic file
+
+	->command(
+		Command::create('logic <logic_name>')
+		->about('Create a new logic file')
+		->action(Create_Logic_Action::class)
+		->arg(
+			Arg_Option::create('namespace')
+				->help('Set the namespace for the logic file, remember to double escape \\')
+				->shortName('n')
+				->longName('namespace')
+				->save()
+		)
+		->arg(
+			Arg_Option::create('save_path')
+				->help('Set the save path for the logic file')
+				->shortName('p')
+				->longName('save_path')
+				->save()
+		)
+		->save()
+	
+	)
+
 	// TODO:
 
 
@@ -90,8 +115,6 @@ Application::create('gimli')
 	// Create a new view
 
 	// Create a new middleware
-
-	// Create a new logic
 
 	// Create a migration
 

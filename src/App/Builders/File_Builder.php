@@ -8,7 +8,7 @@ use Nette\PhpGenerator\PhpFile;
 use Nette\PhpGenerator\PhpNamespace;
 use Nette\PhpGenerator\Printer;
 
-class Controller_Builder {
+class File_Builder {
 
 	protected $Controller_Name;
 	protected $Namespace;
@@ -96,9 +96,3 @@ class Controller_Builder {
 		return $p->printFile($file);
 	}
 }
-
-// $controller = new Controller_Builder('Some_Class', 'Controllers', 'Shared\Controller_Helper');
-// $controller->addUseStatements(['Shared\Controller_Helper', 'Shared\Response', 'Shared\Request']);
-// $controller->addMethods(['index', 'create', 'update', 'delete']);
-// echo $controller->getClass();
-// file_put_contents('Demo.php', $controller->getClass());

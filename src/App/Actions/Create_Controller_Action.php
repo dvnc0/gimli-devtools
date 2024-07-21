@@ -6,7 +6,7 @@ namespace GimliDev\Actions;
 use Clyde\Actions\Action_Base;
 use Clyde\Request\Request;
 use Clyde\Request\Request_Response;
-use GimliDev\Builders\Controller_Builder;
+use GimliDev\Builders\File_Builder;
 
 use function GimliDev\load_config;
 use function Laravel\Prompts\confirm;
@@ -96,9 +96,9 @@ class Create_Controller_Action extends Action_Base {
 			$extends_path = text(label: 'What is the namespace of the class you would like to extend?', placeholder: $this->controller_config['extends']);
 		}
 
-		$controller_builder = new Controller_Builder($controller_name, $namespace, $extends_path);
-		$controller_builder->addUseStatements([self::RESPONSE_NAMESPACE, self::LATTE_ENGINE]);
-		$controller_builder->addMethods([
+		$File_Builder = new File_Builder($controller_name, $namespace, $extends_path);
+		$File_Builder->addUseStatements([self::RESPONSE_NAMESPACE, self::LATTE_ENGINE]);
+		$File_Builder->addMethods([
 			[
 				'name' => '__construct',
 				'return' => null,
@@ -126,7 +126,7 @@ class Create_Controller_Action extends Action_Base {
 			]
 		]);
 
-		$controller = $controller_builder->getClass();
+		$controller = $File_Builder->getClass();
 
 		file_put_contents($controller_path, $controller);
 
@@ -161,9 +161,9 @@ class Create_Controller_Action extends Action_Base {
 			$extends_path = text(label: 'What is the namespace of the class you would like to extend?', placeholder: $this->controller_config['extends']);
 		}
 
-		$controller_builder = new Controller_Builder($controller_name, $namespace, $extends_path);
-		$controller_builder->addUseStatements([self::RESPONSE_NAMESPACE, self::LATTE_ENGINE, self::REQUEST_NAMESPACE]);
-		$controller_builder->addMethods([
+		$File_Builder = new File_Builder($controller_name, $namespace, $extends_path);
+		$File_Builder->addUseStatements([self::RESPONSE_NAMESPACE, self::LATTE_ENGINE, self::REQUEST_NAMESPACE]);
+		$File_Builder->addMethods([
 			[
 				'name' => '__construct',
 				'return' => null,
@@ -324,7 +324,7 @@ class Create_Controller_Action extends Action_Base {
 			],
 		]);
 
-		$controller = $controller_builder->getClass();
+		$controller = $File_Builder->getClass();
 
 		file_put_contents($controller_path, $controller);
 
@@ -359,9 +359,9 @@ class Create_Controller_Action extends Action_Base {
 			$extends_path = text(label: 'What is the namespace of the class you would like to extend?', placeholder: $this->controller_config['extends']);
 		}
 
-		$controller_builder = new Controller_Builder($controller_name, $namespace, $extends_path);
-		$controller_builder->addUseStatements([self::RESPONSE_NAMESPACE, self::LATTE_ENGINE, self::REQUEST_NAMESPACE]);
-		$controller_builder->addMethods([
+		$File_Builder = new File_Builder($controller_name, $namespace, $extends_path);
+		$File_Builder->addUseStatements([self::RESPONSE_NAMESPACE, self::LATTE_ENGINE, self::REQUEST_NAMESPACE]);
+		$File_Builder->addMethods([
 			[
 				'name' => '__construct',
 				'return' => null,
@@ -376,7 +376,7 @@ class Create_Controller_Action extends Action_Base {
 			]
 		]);
 
-		$controller = $controller_builder->getClass();
+		$controller = $File_Builder->getClass();
 
 		file_put_contents($controller_path, $controller);
 
