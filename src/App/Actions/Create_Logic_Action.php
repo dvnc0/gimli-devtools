@@ -37,7 +37,7 @@ class Create_Logic_Action extends Action_Base
 		[$logic_name, $logic_path] = $this->formatPath($Request);
 
 		if (empty($namespace)) {
-			$namespace = text('Enter the namespace for the logic file', default: $config['namespace']);
+			$namespace = text('Enter the namespace for the logic file', default: $config['logic']['namespace']);
 		}
 
 
@@ -47,7 +47,7 @@ class Create_Logic_Action extends Action_Base
 		}
 
 		$extends = confirm('Would you like to extend a base logic file or class?');
-		$extends_path = $config['extends'] ?? '';
+		$extends_path = $config['logic']['extends'] ?? '';
 		if ($extends) {
 			$extends_path = text(label: 'What is the namespace of the class you would like to extend?', default: $extends_path);
 		}
