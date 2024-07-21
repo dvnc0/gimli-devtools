@@ -59,7 +59,7 @@ class Create_Init_Action extends Action_Base {
 
 		if ($controller_defaults === "Yes") {
 			$devtools_config["controllers"] = [
-				'default_save_path' => text(label: 'What is the default save path for controllers?', default: '/src/App/Controllers'),
+				'default_save_path' => text(label: 'What is the default save path for controllers?', default: 'App/Controllers'),
 				'namespace' => text(label: 'What is the default namespace for controllers?', default: 'App\Controllers'),
 				'extends' => text(label: 'What is the default class to extend for controllers?') ?? "",
 			];
@@ -72,6 +72,16 @@ class Create_Init_Action extends Action_Base {
 				'default_save_path' => text(label: 'What is the default save path for logic files?', default: 'App/Logic'),
 				'namespace' => text(label: 'What is the default namespace for logic files?', default: 'App\Logic'),
 				'extends' => text(label: 'What is the default class to extend for logic files?') ?? "",
+			];
+		}
+
+		$model_defaults = select("Would you like to set model file defaults?", ["Yes", "No"]);
+
+		if ($model_defaults === "Yes") {
+			$devtools_config["models"] = [
+				'default_save_path' => text(label: 'What is the default save path for model files?', default: 'App/Models'),
+				'namespace' => text(label: 'What is the default namespace for model files?', default: 'App\Models'),
+				'extends' => text(label: 'What is the default class to extend for model files?', default: 'Gimli\Database\Model') ?? "",
 			];
 		}
 

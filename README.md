@@ -27,6 +27,7 @@ Devtools for GimliDuck Framework
 |init                          |Create a devtools configuration file      |
 |controller <controller_name>  |Create a new controller                   |
 |logic <logic_name>            |Create a new logic file                   |
+|model <model_name>            |Create a new model                        |
 |version                       |Prints the version information for gimli  |
 ```
 
@@ -35,7 +36,6 @@ Create the devtools config file with `vendor/bin/gimli init`
 Use `vendor/bin/gimli help` to view commands and `vendor/bin/gimli <command> --help` for more information on a specific command.
 
 ## Current planned features:
-- Create a new model
 - Create a new middleware
 - Create a migration
 - Create a route file

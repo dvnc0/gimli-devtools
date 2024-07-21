@@ -37,6 +37,31 @@ class File_Builder {
 	}
 
 	/**
+	 * Add properties to the class
+	 *
+	 * @param array $props
+	 * @return self
+	 */
+	public function addClassProperties(array $props): self {
+		foreach ($props as $prop) {
+			$comment = "\n" . $prop['comment'] ?: '';
+			$comment_format = "@var {$prop['type']} \${$prop['name']} {$comment}";
+			$p = $this->Class_Shell->addProperty($prop['name'])->setType($prop['type'])->addComment($comment_format);
+
+			if (isset($prop['value'])) {
+				$p->setValue($prop['value']);
+			}
+
+			if (isset($prop['protected']) && $prop['protected'] === true) {
+				$p->setVisibility('protected');
+			}
+		}
+
+		return $this;
+	
+	}
+
+	/**
 	 * Add methods to the controller
 	 *
 	 * @param array $methods
@@ -78,6 +103,12 @@ class File_Builder {
 			if ($method === '__construct') {
 				continue;
 			}
+
+			if (!empty($method_data['body'])) {
+				$controller_method->addBody($method_data['body']);
+				continue;
+			}
+
 			$controller_method->addBody('return $Response->setResponse("Hello World!");');
 		}
 	

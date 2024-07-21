@@ -16,6 +16,7 @@ use Clyde\Commands\Command;
 use Clyde\Tools\Emoji;
 use GimliDev\Actions\Create_Controller_Action;
 use GimliDev\Actions\Create_Logic_Action;
+use GimliDev\Actions\Create_Model_Action;
 
 define('ROOT', getcwd());
 define('APP_ROOT', __DIR__);
@@ -107,10 +108,46 @@ Application::create('gimli')
 	
 	)
 
-	// TODO:
-
-
 	// Create a new model
+
+	->command(
+		Command::create('model <model_name>')
+		->about('Create a new model')
+		->action(Create_Model_Action::class)
+		->arg(
+			Arg_Option::create('namespace')
+				->help('Set the namespace for the model, remember to double escape \\')
+				->shortName('n')
+				->longName('namespace')
+				->save()
+		)
+		->arg(
+			Arg_Option::create('save_path')
+				->help('Set the save path for the model')
+				->shortName('p')
+				->longName('save_path')
+				->save()
+		)
+		->arg(
+			Arg_Option::create('table')
+				->help('Set the table name for the model')
+				->shortName('t')
+				->longName('table')
+				->defaultValue('')
+				->save()
+		)
+		->arg(
+			Arg_Option::create('primary_key')
+				->help('Set the primary key for the model')
+				->shortName('k')
+				->longName('primary_key')
+				->defaultValue('id')
+				->save()
+		)
+		->save()
+	)
+
+	// TODO:
 
 	// Create a new view
 
