@@ -85,6 +85,15 @@ class Create_Init_Action extends Action_Base {
 			];
 		}
 
+		$job_defaults = select("Would you like to set job file defaults?", ["Yes", "No"]);
+		if ($job_defaults === "Yes") {
+			$devtools_config["jobs"] = [
+				'default_save_path' => text(label: 'What is the default save path for job files?', default: 'App/Jobs'),
+				'namespace' => text(label: 'What is the default namespace for job files?', default: 'App\Jobs'),
+				'extends' => text(label: 'What is the default class to extend for job files?'),
+			];
+		}
+
 		if ($force_overwrite) {
 			$continue = confirm("Would you like to continue? Doing so will overwrite your existing configuration file.");
 			if (!$continue) {

@@ -15,6 +15,7 @@ use Clyde\Args\Arg_Option;
 use Clyde\Commands\Command;
 use Clyde\Tools\Emoji;
 use GimliDev\Actions\Create_Controller_Action;
+use GimliDev\Actions\Create_Job_Action;
 use GimliDev\Actions\Create_Logic_Action;
 use GimliDev\Actions\Create_Model_Action;
 
@@ -142,6 +143,28 @@ Application::create('gimli')
 				->shortName('k')
 				->longName('primary_key')
 				->defaultValue('id')
+				->save()
+		)
+		->save()
+	)
+
+	// Create a Job file
+	->command(
+		Command::create('job <job_name>')
+		->about('Create a new Job')
+		->action(Create_Job_Action::class)
+		->arg(
+			Arg_Option::create('namespace')
+				->help('Set the namespace for the Job, remember to double escape \\')
+				->shortName('n')
+				->longName('namespace')
+				->save()
+		)
+		->arg(
+			Arg_Option::create('save_path')
+				->help('Set the save path for the Job')
+				->shortName('p')
+				->longName('save_path')
 				->save()
 		)
 		->save()

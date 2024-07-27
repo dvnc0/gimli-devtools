@@ -28,6 +28,7 @@ Devtools for GimliDuck Framework
 |controller <controller_name>  |Create a new controller                   |
 |logic <logic_name>            |Create a new logic file                   |
 |model <model_name>            |Create a new model                        |
+|job <job_name>                |Create a new Job                          |
 |version                       |Prints the version information for gimli  |
 ```
 
