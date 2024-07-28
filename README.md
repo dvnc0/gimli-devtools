@@ -29,6 +29,7 @@ Devtools for GimliDuck Framework
 |logic <logic_name>            |Create a new logic file                   |
 |model <model_name>            |Create a new model                        |
 |job <job_name>                |Create a new Job                          |
+|event <event_name>            |Create a new event                        |
 |version                       |Prints the version information for gimli  |
 ```
 
