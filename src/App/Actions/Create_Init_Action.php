@@ -94,6 +94,15 @@ class Create_Init_Action extends Action_Base {
 			];
 		}
 
+		$event_defaults = select("Would you like to set event file defaults?", ["Yes", "No"]);
+		if ($event_defaults === "Yes") {
+			$devtools_config["events"] = [
+				'default_save_path' => text(label: 'What is the default save path for event files?', default: 'App/Events'),
+				'namespace' => text(label: 'What is the default namespace for event files?', default: 'App\Events'),
+				'extends' => text(label: 'What is the default class to extend for event files?'),
+			];
+		}
+
 		if ($force_overwrite) {
 			$continue = confirm("Would you like to continue? Doing so will overwrite your existing configuration file.");
 			if (!$continue) {

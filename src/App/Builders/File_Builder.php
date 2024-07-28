@@ -27,12 +27,43 @@ class File_Builder {
 		}
 	}
 
-	public function addUseStatements(array $use_statements): self
-	{
+	/**
+	 * Add class attributes
+	 *
+	 * @param string $name
+	 * @param array $args
+	 * @return self
+	 */
+	public function addClassAttribute(string $name, array $args): self {
+		foreach ($args as $arg) {
+			$this->Class_Shell->addAttribute($name, [$arg]);
+		}
+		
+		return $this;
+	}
+
+	/**
+	 * Add use statements to the class
+	 *
+	 * @param array $use_statements
+	 * @return self
+	 */
+	public function addUseStatements(array $use_statements): self {
 		foreach ($use_statements as $use_statement) {
 			$this->Class_File->addUse($use_statement);
 		}
 
+		return $this;
+	}
+
+	/**
+	 * Add an interface to the class
+	 *
+	 * @param string $interface
+	 * @return self
+	 */
+	public function addInterface(string $interface): self {
+		$this->Class_Shell->addImplement($interface);
 		return $this;
 	}
 
@@ -75,7 +106,7 @@ class File_Builder {
 
 			if (isset($method_data['return'])) {
 				$controller_method->setReturnType($method_data['return']);
-				$method_return = "@return {$method_data['return_name']}";
+				$method_return = "@return {$method_data['return_name']}";				
 			}
 			
 			$param_comments = '';
@@ -109,11 +140,20 @@ class File_Builder {
 				continue;
 			}
 
-			$controller_method->addBody('return $Response->setResponse("Hello World!");');
+			if ($method_data['return'] === 'void') {
+				$controller_method->addBody('return;');
+			} else {
+				$controller_method->addBody('return $Response;');
+			}
 		}
 	
 	}
 
+	/**
+	 * Get the class as a string
+	 *
+	 * @return string
+	 */
 	public function getClass(): string {
 		$p = new class extends Printer {
 			public int $wrapLength = 130;
