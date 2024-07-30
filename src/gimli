@@ -18,6 +18,7 @@ use GimliDev\Actions\Create_Controller_Action;
 use GimliDev\Actions\Create_Event_Action;
 use GimliDev\Actions\Create_Job_Action;
 use GimliDev\Actions\Create_Logic_Action;
+use GimliDev\Actions\Create_Middleware_Action;
 use GimliDev\Actions\Create_Model_Action;
 
 define('ROOT', getcwd());
@@ -193,11 +194,34 @@ Application::create('gimli')
 		->save()
 	)
 
+	// Create a new middleware
+
+	->command(
+		Command::create('middleware <middleware_name>')
+		->about('Create a new middleware class')
+		->action(Create_Middleware_Action::class)
+		->arg(
+			Arg_Option::create('namespace')
+				->help('Set the namespace for the middleware, remember to double escape \\')
+				->shortName('n')
+				->longName('namespace')
+				->save()
+		)
+		->arg(
+			Arg_Option::create('save_path')
+				->help('Set the save path for the middleware')
+				->shortName('p')
+				->longName('save_path')
+				->save()
+		)
+		->save()
+	)
+
 	// TODO:
 
 	// Create a new view
 
-	// Create a new middleware
+	
 
 	// Create a migration
 

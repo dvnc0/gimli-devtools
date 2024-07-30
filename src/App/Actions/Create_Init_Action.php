@@ -103,6 +103,15 @@ class Create_Init_Action extends Action_Base {
 			];
 		}
 
+		$middleware_defaults = select("Would you like to set middleware file defaults?", ["Yes", "No"]);
+		if ($middleware_defaults === "Yes") {
+			$devtools_config["middleware"] = [
+				'default_save_path' => text(label: 'What is the default save path for middleware files?', default: 'App/Middleware'),
+				'namespace' => text(label: 'What is the default namespace for middleware files?', default: 'App\Middleware'),
+				'extends' => text(label: 'What is the default class to extend for middleware files?'),
+			];
+		}
+
 		if ($force_overwrite) {
 			$continue = confirm("Would you like to continue? Doing so will overwrite your existing configuration file.");
 			if (!$continue) {

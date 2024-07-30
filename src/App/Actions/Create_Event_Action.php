@@ -111,7 +111,8 @@ class Create_Event_Action extends Action_Base {
 						'name' => 'args',
 						'type' => 'array',
 						'type_short' => 'array',
-						'comment' => 'The args passed'
+						'comment' => 'The args passed',
+						'default' => []
 					],
 				]
 			]

@@ -117,6 +117,10 @@ class File_Builder {
 				} else {
 					$controller_method->addParameter($param['name'])->setType($param['type']);
 				}
+
+				if(array_key_exists('default', $param)) {
+					$controller_method->getParameter($param['name'])->setDefaultValue($param['default']);
+				}
 				$param_comments .= "@param {$param['type_short']} \${$param['name']} {$param['comment']}\n";
 			}
 
