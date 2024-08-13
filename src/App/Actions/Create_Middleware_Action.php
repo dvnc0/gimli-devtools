@@ -49,7 +49,7 @@ class Create_Middleware_Action extends Action_Base {
 		$path = $Request->getArgument('save_path') ?? '';
 
 		if (empty($path)) {
-			$path = text(label: 'Where would you like to save the mieddleware?', default: $this->middleware_config['default_save_path']);
+			$path = text(label: 'Where would you like to save the middleware?', default: $this->middleware_config['default_save_path']);
 		}
 
 		$path = $path[0] !== '/' ? '/' . $path : $path;

@@ -22,6 +22,15 @@ class Database {
 	}
 
 	/**
+	 * Get the database connection
+	 *
+	 * @return PDO
+	 */
+	public function getDb(): PDO {
+		return $this->db;
+	}
+
+	/**
 	 * Get the schema for a table
 	 *
 	 * @param  string $table

@@ -19,7 +19,10 @@ use GimliDev\Actions\Create_Event_Action;
 use GimliDev\Actions\Create_Job_Action;
 use GimliDev\Actions\Create_Logic_Action;
 use GimliDev\Actions\Create_Middleware_Action;
+use GimliDev\Actions\Create_Migration_Action;
 use GimliDev\Actions\Create_Model_Action;
+use GimliDev\Actions\Revert_Migration_Action;
+use GimliDev\Actions\Run_Migration_Action;
 
 define('ROOT', getcwd());
 define('APP_ROOT', __DIR__);
@@ -217,13 +220,42 @@ Application::create('gimli')
 		->save()
 	)
 
+	// Create a new migration file
+	->command(
+		Command::create('migration')
+		->about('Create a new migration file')
+		->action(Create_Migration_Action::class)
+		->save()
+	)
+
+	// run all migrations
+	->command(
+		Command::create('run-migrations')
+		->about('Run all pending migrations')
+		->action(Run_Migration_Action::class)
+		->save()
+	)
+
+	// revert a migration
+	->command(
+		Command::create('revert-migration <file_name>')
+		->about('Revert a migration')
+		->action(Revert_Migration_Action::class)
+		->arg(
+			Arg_Flag::create('erase_log')
+				->shortName('e')
+				->help('Erase from migration log, will cause migration to run again')
+				->defaultValue(false)
+				->setTo(true)
+				->longName('erase_log')
+				->save()
+		)
+		->save()
+	)
+
 	// TODO:
 
 	// Create a new view
-
-	
-
-	// Create a migration
 
 	// Create a route file
 
@@ -231,12 +263,8 @@ Application::create('gimli')
 
 	// Add a Vue file
 
-	// Create a skeleton project
-
 	// Run Vue build
 
 	// Run TailwindCSS build
-
-	// Run migrations
 
 ->run();
