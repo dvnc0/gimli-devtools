@@ -15,6 +15,7 @@ use function Laravel\Prompts\text;
 class Create_Middleware_Action extends Action_Base {
 	
 	const MIDDLEWARE_INTERFACE = "Gimli\Middleware\Middleware_Interface";
+	const MIDDLEWARE_RESPONSE = "Gimli\Middleware\Middleware_Response";
 
 	protected array $middleware_config = [];
 
@@ -86,13 +87,13 @@ class Create_Middleware_Action extends Action_Base {
 		}
 
 		$File_Builder = new File_Builder($middleware_name, $namespace, $extends_path);
-		$File_Builder->addUseStatements([self::MIDDLEWARE_INTERFACE]);
+		$File_Builder->addUseStatements([self::MIDDLEWARE_INTERFACE, self::MIDDLEWARE_RESPONSE]);
 		$File_Builder->addInterface(self::MIDDLEWARE_INTERFACE);
 		$File_Builder->addMethods([
 			[
 				'name' => 'process',
-				'return' => 'void',
-				'return_name' => 'void',
+				'return' => self::MIDDLEWARE_RESPONSE,
+				'return_name' => 'Middleware_Response',
 				'params' => []
 			]
 		]);
